@@ -1,0 +1,27 @@
+<h1>Listing variants</h1>
+
+<table>
+  <tr>
+    <th>Body</th>
+    <th>Step</th>
+    <th>Next step</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @variants.each do |variant| %>
+  <tr>
+    <td><%= variant.body %></td>
+    <td><%= variant.step_id %></td>
+    <td><%= variant.next_step_id %></td>
+    <td><%= link_to 'Show', variant %></td>
+    <td><%= link_to 'Edit', edit_variant_path(variant) %></td>
+    <td><%= link_to 'Destroy', variant, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Variant', new_variant_path %>

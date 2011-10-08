@@ -1,0 +1,31 @@
+<h1>Listing steps</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Result</th>
+    <th>Video</th>
+    <th>Quest</th>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @steps.each do |step| %>
+  <tr>
+    <td><%= step.description %></td>
+    <td><%= step.result %></td>
+    <td><%= step.video %></td>
+    <td><%= step.quest_id %></td>
+    <td><%= step.title %></td>
+    <td><%= link_to 'Show', step %></td>
+    <td><%= link_to 'Edit', edit_step_path(step) %></td>
+    <td><%= link_to 'Destroy', step, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Step', new_step_path %>
