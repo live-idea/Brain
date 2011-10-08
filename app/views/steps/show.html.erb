@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @step.description %>
+</p>
+
+<p>
+  <b>Result:</b>
+  <%= @step.result %>
+</p>
+
+<p>
+  <b>Video:</b>
+  <%= @step.video %>
+</p>
+
+<p>
+  <b>Quest:</b>
+  <%= @step.quest_id %>
+</p>
+
+<p>
+  <b>Title:</b>
+  <%= @step.title %>
+</p>
+
+
+<%= link_to 'Edit', edit_step_path(@step) %> |
+<%= link_to 'Back', steps_path %>
