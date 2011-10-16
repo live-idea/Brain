@@ -1,0 +1,7 @@
+<%= content_for :sidebar do %>
+  <% @quests.each do |quest| %>
+    <h3><%=link_to quest.name, game_path(quest) %></h3>  
+    
+    
+  <% end %>
+<% end  %>  

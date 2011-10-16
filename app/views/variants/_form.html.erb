@@ -1,4 +1,7 @@
-<%= form_for(@variant) do |f| %>
+
+
+<%= form_for [@step,@variant] do |f| %>
+
   <% if @variant.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@variant.errors.count, "error") %> prohibited this variant from being saved:</h2>
@@ -15,13 +18,10 @@
     <%= f.label :body %><br />
     <%= f.text_area :body %>
   </div>
-  <div class="field">
-    <%= f.label :step_id %><br />
-    <%= f.number_field :step_id %>
-  </div>
+ 
   <div class="field">
     <%= f.label :next_step_id %><br />
-    <%= f.number_field :next_step_id %>
+    <%= f.select :next_step_id, @quest.steps.map {|c| [c.title, c.id]}, :prompt=>"--Виберіть наступний крок--"  %>
   </div>
   <div class="actions">
     <%= f.submit %>

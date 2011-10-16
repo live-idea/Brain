@@ -1,4 +1,4 @@
-<%= form_for(@step) do |f| %>
+<%= form_for [@quest,@step] do |f| %>
   <% if @step.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@step.errors.count, "error") %> prohibited this step from being saved:</h2>
@@ -11,25 +11,27 @@
     </div>
   <% end %>
 
+<div class="field">
+    <%= f.label :photo %><br />
+    <%= f.file_field :photo %>
+  </div>
+
   <div class="field">
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :size => "40x5"%>
   </div>
   <div class="field">
     <%= f.label :result %><br />
-    <%= f.text_field :result %>
+    <%= f.text_field :result, :size => "35x5" %>
   </div>
   <div class="field">
     <%= f.label :video %><br />
-    <%= f.text_area :video %>
+    <%= f.text_area :video, :size => "40x5" %>
   </div>
-  <div class="field">
-    <%= f.label :quest_id %><br />
-    <%= f.number_field :quest_id %>
-  </div>
+  
   <div class="field">
     <%= f.label :title %><br />
-    <%= f.text_area :title %>
+    <%= f.text_area :title, :size => "40x5" %>
   </div>
   <div class="actions">
     <%= f.submit %>

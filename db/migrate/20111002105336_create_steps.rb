@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateSteps < ActiveRecord::Migration
   def change
     create_table :steps do |t|

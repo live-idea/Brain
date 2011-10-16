@@ -1,20 +1,4 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <b>Body:</b>
-  <%= @variant.body %>
-</p>
+<%=  render "shared/sidebar_content" %> 
 
-<p>
-  <b>Step:</b>
-  <%= @variant.step_id %>
-</p>
-
-<p>
-  <b>Next step:</b>
-  <%= @variant.next_step_id %>
-</p>
-
-
-<%= link_to 'Edit', edit_variant_path(@variant) %> |
-<%= link_to 'Back', variants_path %>
+<%=link_to 'Назад', quest_steps_path(@quest) %>

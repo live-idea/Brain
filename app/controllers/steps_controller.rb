@@ -1,9 +1,12 @@
+# -*- encoding : utf-8 -*-
 class StepsController < ApplicationController
+  before_filter :get_quest
   # GET /steps
   # GET /steps.json
   def index
-    @steps = Step.all
-
+  
+    @steps = @quest.steps
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @steps }
@@ -24,6 +27,7 @@ class StepsController < ApplicationController
   # GET /steps/new
   # GET /steps/new.json
   def new
+   
     @step = Step.new
 
     respond_to do |format|
@@ -40,33 +44,34 @@ class StepsController < ApplicationController
   # POST /steps
   # POST /steps.json
   def create
-    @step = Step.new(params[:step])
+  
+    @step = @quest.steps.new(params[:step])
 
-    respond_to do |format|
+    
+   
       if @step.save
-        format.html { redirect_to @step, notice: 'Step was successfully created.' }
-        format.json { render json: @step, status: :created, location: @step }
+        redirect_to (quest_path(@quest)), notice: 'Step was successfully created.'
+
       else
-        format.html { render action: "new" }
-        format.json { render json: @step.errors, status: :unprocessable_entity }
+        render action: "new" 
       end
-    end
   end
 
   # PUT /steps/1
   # PUT /steps/1.json
   def update
+   
     @step = Step.find(params[:id])
 
-    respond_to do |format|
-      if @step.update_attributes(params[:step])
-        format.html { redirect_to @step, notice: 'Step was successfully updated.' }
-        format.json { head :ok }
+    if @step.update_attributes(params[:step])
+        redirect_to (quest_path(@quest)), notice: 'Step was successfully updated.'
+
       else
-        format.html { render action: "edit" }
-        format.json { render json: @step.errors, status: :unprocessable_entity }
+         render action: "edit" 
       end
-    end
+    
+    
+   
   end
 
   # DELETE /steps/1
@@ -76,8 +81,14 @@ class StepsController < ApplicationController
     @step.destroy
 
     respond_to do |format|
-      format.html { redirect_to steps_url }
+      format.html { redirect_to quest_steps_url(@quest) }
       format.json { head :ok }
     end
+  end
+  
+private
+
+  def get_quest
+        @quest = Quest.find(params[:quest_id])
   end
 end

@@ -1,8 +1,9 @@
+# -*- encoding : utf-8 -*-
 class QuestsController < ApplicationController
   # GET /quests
   # GET /quests.json
+   before_filter :get_quests
   def index
-    @quests = Quest.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -25,7 +26,6 @@ class QuestsController < ApplicationController
   # GET /quests/new.json
   def new
     @quest = Quest.new
-
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @quest }
@@ -35,6 +35,8 @@ class QuestsController < ApplicationController
   # GET /quests/1/edit
   def edit
     @quest = Quest.find(params[:id])
+    
+    
   end
 
   # POST /quests
@@ -44,7 +46,7 @@ class QuestsController < ApplicationController
 
     respond_to do |format|
       if @quest.save
-        format.html { redirect_to @quest, notice: 'Quest was successfully created.' }
+        format.html { redirect_to quests_path, notice: 'Quest was successfully created.' }
         format.json { render json: @quest, status: :created, location: @quest }
       else
         format.html { render action: "new" }
@@ -57,10 +59,10 @@ class QuestsController < ApplicationController
   # PUT /quests/1.json
   def update
     @quest = Quest.find(params[:id])
-
+    
     respond_to do |format|
       if @quest.update_attributes(params[:quest])
-        format.html { redirect_to @quest, notice: 'Quest was successfully updated.' }
+        format.html { redirect_to quests_path, notice: 'Quest was successfully updated.' }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -80,4 +82,9 @@ class QuestsController < ApplicationController
       format.json { head :ok }
     end
   end
-end
+  
+  private 
+    def get_quests
+       @quests = Quest.all
+    end
+  end

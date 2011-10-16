@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class User < ActiveRecord::Base
   has_one :game
   # Include default devise modules. Others available are:

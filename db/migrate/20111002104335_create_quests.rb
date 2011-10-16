@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class CreateQuests < ActiveRecord::Migration
   def change
     create_table :quests do |t|

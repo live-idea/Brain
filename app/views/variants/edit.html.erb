@@ -1,6 +1,7 @@
 <h1>Editing variant</h1>
-
+<%=  render "shared/sidebar_content" %> 
 <%= render 'form' %>
 
-<%= link_to 'Show', @variant %> |
-<%= link_to 'Back', variants_path %>
+<%= link_to 'Show', [@step, @variant] %> |
+<%= link_to 'Back', step_variants_path(@step) %>|
+<%= link_to 'Видалити варіант', step_variant_path(@step, @variant), confirm: 'Are you sure?', method: :delete%>

@@ -1,6 +1,7 @@
 <h1>Editing step</h1>
-
+<%=  render "shared/sidebar_content" %> 
 <%= render 'form' %>
 
-<%= link_to 'Show', @step %> |
-<%= link_to 'Back', steps_path %>
+<%= link_to 'Show', [@quest,@step] %> |
+<%= link_to 'Back', quest_steps_path %>|
+<%= link_to 'Delete step', quest_step_path(@quest, @step), confirm: 'Are you sure?', method: :delete  %>

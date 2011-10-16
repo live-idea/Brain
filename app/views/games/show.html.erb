@@ -1,35 +1,8 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <b>User:</b>
-  <%= @game.user_id %>
-</p>
-
-<p>
-  <b>Quest:</b>
-  <%= @game.quest_id %>
-</p>
-
-<p>
-  <b>Start time:</b>
-  <%= @game.start_time %>
-</p>
-
-<p>
-  <b>Scores:</b>
-  <%= @game.scores %>
-</p>
-
-<p>
-  <b>Step:</b>
-  <%= @game.step_id %>
-</p>
-
-<p>
-  <b>Step count:</b>
-  <%= @game.step_count %>
-</p>
+<h2> <%= @step.description %></h2>
+<%= image_tag(@step.photo.url, :width => 160, :height => 100) %>
+<%= raw(@step.video) %>
+    <%- @step.variants.each  do |variant| %>
+      <ul><%=link_to variant.body, game_path(@step.quest_id, :step=>variant.next_step_id) %></ul>
+<%end%>
 
 
-<%= link_to 'Edit', edit_game_path(@game) %> |
-<%= link_to 'Back', games_path %>

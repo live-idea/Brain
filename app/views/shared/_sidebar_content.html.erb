@@ -1,0 +1,27 @@
+<%= content_for :sidebar do %>
+  <h3><%=@quest.name%> 
+    <p> <%= link_to 'Edit', edit_quest_path(@quest) %> |
+      <%= link_to 'Back', quests_path %> |
+      <%= link_to 'Destroy', @quest, confirm: 'Are you sure?', method: :delete %></p>
+  </h3> 
+
+  <ul class="steps">
+    <%@quest.steps.each do |s|%>
+      <li class="<%= params[:step_id] == s.id.to_s ? "selected" : "" %>">
+
+        <%= link_to s.title, edit_quest_step_path(@quest, s), :title => "edit" %>
+        <% if params[:step_id] == s.id.to_s || params[:controller] == "steps" && params[:id] == s.id.to_s %>
+          &larr; вибраний
+        <%end%>
+      <ul>
+        <%s.variants.each do |v|%>
+          <li><%= link_to v.body, edit_step_variant_path(s, v)%> &rarr; <%=v.next_step.title if v.next_step%></li>
+        <%end%>
+        <li><%=link_to "додати варіант", new_step_variant_path(s)%></li>
+      </ul>
+    </li>
+  <%end%>
+</ul>
+
+<%= link_to 'Додати крок', new_quest_step_path(@quest) %>
+<% end  %>  

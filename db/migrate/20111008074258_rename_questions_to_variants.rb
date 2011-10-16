@@ -1,3 +1,4 @@
+# -*- encoding : utf-8 -*-
 class RenameQuestionsToVariants < ActiveRecord::Migration
   def up
     rename_table :questions, :variants

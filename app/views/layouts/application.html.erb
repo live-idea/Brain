@@ -1,22 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Brain</title>
-  <%= stylesheet_link_tag    "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <title>Brain</title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="site">
+      <div class="header">
+        <%= image_tag('34.jpg', :width => 960, :height => 250) %>
+      </div>
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
+      <%= link_to image_tag('2.jpg', :width => 80, :height => 50, :title => "Головна"), root_path  %>
+      <%= link_to "Квести", quests_path  %>
+      <%= link_to "Про...", "#"  %>
+      <ul class="hmenu">
+<%#= render 'devise/menu/registration_items' %>
+<%#= render 'devise/menu/login_items' %>
+      </ul>
+      <div class="sidebar"><div class="content-wrapper">
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-  
-  <ul class="hmenu">
-    <%#= render 'devise/menu/registration_items' %>
-    <%#= render 'devise/menu/login_items' %>
-  </ul>
+          <%= content_for?(:sidebar) ? yield(:sidebar) : "Hello" %>
 
-<%= yield %>
+          <br/>
 
-</body>
+        </div> </div>
+      <div class="content"><div class="content-wrapper"><%= yield %></div>
+      </div>
+    </div>
+    <div class="footer", style="color: yellow">&copy; Pustomyty Dream Team 2011</div>
+
+  </body>
 </html>

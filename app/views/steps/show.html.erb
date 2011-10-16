@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+
+<%=  render "shared/sidebar_content" %> 
+
+ <%= image_tag @step.photo.url(:medium) if @step.photo.exists? %>
 
 <p>
   <b>Description:</b>
@@ -26,5 +29,7 @@
 </p>
 
 
-<%= link_to 'Edit', edit_step_path(@step) %> |
-<%= link_to 'Back', steps_path %>
+<%= link_to 'Edit', edit_quest_step_path(@quest, @step) %> |
+<%= link_to 'Back', quest_steps_path(@quest) %> |
+<%= link_to 'Додати варіант', new_step_variant_path(@step) %>|
+

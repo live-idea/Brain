@@ -1,0 +1,8 @@
+<%= content_for :sidebar do %>
+  <% @quests.each do |quest| %>
+    <h3><%=link_to quest.name, quest_path(quest)%></h3>  
+    
+    <%= link_to 'Edit', edit_quest_path(quest) %> | <%= link_to 'Destroy', quest, confirm: 'Are you sure?', method: :delete %>
+
+  <% end %>
+<% end  %>  
