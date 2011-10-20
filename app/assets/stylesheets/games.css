@@ -10,12 +10,19 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 
+/* Round corners */
+div{
+    -moz-border-radius:    10px;
+    -webkit-border-radius: 10px;
+    border-radius:         10px;
+}
+
 .site {
   width: 960px;
   margin: auto;
   background-color: #fff ; 
   overflow: auto;
-  
+
 }
 .header {
   text-align: center;
@@ -38,6 +45,7 @@ body, p, ol, ul, td {
   display: block;
   width: 20%;
   background-color: #98fcfd;
+  
 }
 
 .content {
@@ -115,3 +123,4 @@ li.selected{
     font-weight: bold;
     color: red;
 }
+

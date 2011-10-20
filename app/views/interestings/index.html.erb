@@ -1,0 +1,21 @@
+<h1>Listing interestings</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @interestings.each do |interesting| %>
+  <td> <%=simple_format truncate(interesting.body, :length=>10, :separator=>" ", :omission => "... (#{link_to 'більше тексту', interesting_path(interesting)})")%> </td>
+  <tr>
+    <td><%= link_to 'Edit', edit_interesting_path(interesting) %> |
+    <%= link_to 'Destroy', interesting, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Interesting', new_interesting_path %>

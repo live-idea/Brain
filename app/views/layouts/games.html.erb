@@ -16,6 +16,7 @@
       <ul class="hmenu">
 
       </ul>
+      <div class="round">
       <div class="sidebar"><div class="content-wrapper">
            <%= content_for?(:sidebar) ? yield(:sidebar) : "nic nema" %>
           <br/>
@@ -23,12 +24,13 @@
       </div>    
       <div class="rightebar"><div class="content-wrapper">
 
-          rightbar Prevet!
-
-          <br/>
+           <%= content_for?(:rightebar) ? yield(:rightebar) : "nic nema" %>
+                   <br/>
         </div> 
       </div>
       <div class="content"><div class="content-wrapper"><%= yield %></div>
+        </div>
+
       </div>
     </div>
     <div class="footer", style="color: yellow">&copy; Pustomyty Dream Team 2011</div>
