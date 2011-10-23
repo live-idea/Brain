@@ -1,8 +1,8 @@
 <%= content_for :rightebar do %>
- <%  if @interesting.present?  %> 
-   <%= @interesting.body %>
-<% else %>
-  Цікавинка
- <% end %>    
+<% if @interesting.present?%>
+  <%= @interesting.body %>
+<% else %> 
+правий кусок і має показувати цікавинки! Справити це негайно!
+   <%end%>
 
 <% end  %>  

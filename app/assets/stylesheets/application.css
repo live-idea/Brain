@@ -36,7 +36,9 @@ div{
   min-height: 400px;
   float: left;
   display: block;
+
   width: 40%;
+
   background: -moz-linear-gradient(center top ,white, #99fcfd) repeat scroll 0 0 transparent; 
 }
 .rightebar {

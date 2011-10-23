@@ -6,13 +6,13 @@ gem 'rails', '3.1.0'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'mysql2'
-gem 'therubyracer'
+#gem 'therubyracer'
 gem 'devise'
 gem 'jquery-rails'
 gem "paperclip"
-gem 'thin'
+gem "thin"
 gem "libv8", :platforms => [:ruby] 
-
+gem "therubyracer", "0.9.8", :platforms => [:ruby]
 # Use unicorn as the web server
 # gem 'unicorn'
 
