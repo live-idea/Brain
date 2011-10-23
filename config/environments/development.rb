@@ -30,4 +30,15 @@ Brain::Application.configure do
   config.assets.debug = true
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
   
+  
 end
+
+ActionMailer::Base.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => "railscasts.com",
+  :user_name            => "exe.shka.exe@gmail.com",
+  :password             => "vero",
+  :authentication       => "plain",
+  :enable_starttls_auto => true
+}
