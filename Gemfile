@@ -11,6 +11,8 @@ gem 'devise'
 gem 'jquery-rails'
 gem "paperclip"
 gem 'thin'
+gem "libv8", :platforms => [:ruby] 
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
