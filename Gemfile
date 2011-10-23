@@ -21,7 +21,12 @@ gem "libv8", :platforms => [:ruby]
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
+group :assets do
+  gem 'sass-rails', "~> 3.1.0"
 
+  gem 'uglifier'
+
+end
 group :test do
   # Pretty printed test output
   gem 'turn', :require => false
