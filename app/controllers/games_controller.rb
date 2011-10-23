@@ -19,7 +19,7 @@ class GamesController < ApplicationController
         render "shared/_nexist"
       end
     end
-    @comments = Comment.all
+  
   end
  
   def ajax
