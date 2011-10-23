@@ -13,7 +13,7 @@ test:
   database: brain_test
   pool: 5
   username: root
-  password: vero
+  password: 
   host: localhost
 
 production:
@@ -22,5 +22,5 @@ production:
   database: brain_production
   pool: 5
   username: root
-  password: vero
+  password: 
   host: localhost

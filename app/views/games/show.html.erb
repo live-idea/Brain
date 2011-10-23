@@ -1,8 +1,13 @@
-<h2> <%= @step.description %></h2>
+<h2> <%= @step.description %> </h2>
 <%= image_tag(@step.photo.url, :width => 160, :height => 100) %>
 <%= raw(@step.video) %>
-    <%- @step.variants.each  do |variant| %>
+    <% @step.variants.each  do |variant| %>
       <ul><%=link_to variant.body, game_path(@step.quest_id, :step=>variant.next_step_id) %></ul>
+      <%end%>
+      <%= content_for :sidebar do %>
+      <%=@quest.name%>
+      <%=link_to "Підказка", ajax_games_path, :remote => true, :class => "ajax_link", "data-type" => "html"%>
+     
 <%end%>
-
+ <%=  render "shared/rightebar" %>
 
