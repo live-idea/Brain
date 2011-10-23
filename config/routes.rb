@@ -1,8 +1,15 @@
 # -*- encoding : utf-8 -*-
 Brain::Application.routes.draw do
 
+ 
   devise_for :users, :path_names => { :sign_in => 'login', :sign_out => 'logout', :password => 'secret', :confirmation => 'verification', :unlock => 'unblock', :registration => 'register', :sign_up => 'cmon_let_me_in' }
-  resources :games
+  resources :games do 
+    collection do
+          get 'ajax'
+    end
+   
+  end
+  
   resources :interestings
   
   resources :quests do
@@ -11,7 +18,9 @@ Brain::Application.routes.draw do
   
   resources :steps do
     resources :variants
+    resources :comments
   end
+  
 # The priority is based upon order of creation:
   # first created -> highest priority.
 
