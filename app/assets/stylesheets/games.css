@@ -1,5 +1,5 @@
 body { color: #333; 
-background-color: #3377ff;
+background: -moz-linear-gradient(center top , #3377ff, green) repeat scroll 0 0 transparent;
 background-position: center;
 background-repeat: no-repeat;
 }
@@ -20,7 +20,7 @@ div{
 .site {
   width: 960px;
   margin: auto;
-  background-color: #fff ; 
+  background-color: #D0D0D0 ; 
   overflow: auto;
 
 }
@@ -37,14 +37,14 @@ div{
   float: left;
   display: block;
   width: 20%;
-  background-color: #99fcfd;
+  background: -moz-linear-gradient(center top ,white, #99fcfd) repeat scroll 0 0 transparent; 
 }
 .rightebar {
   min-height: 400px;
   float: right;
   display: block;
   width: 20%;
-  background-color: #98fcfd;
+  background: -moz-linear-gradient(center top ,white, #99fcfd) repeat scroll 0 0 transparent; 
   
 }
 
@@ -123,4 +123,3 @@ li.selected{
     font-weight: bold;
     color: red;
 }
-

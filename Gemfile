@@ -10,7 +10,7 @@ gem 'therubyracer'
 gem 'devise'
 gem 'jquery-rails'
 gem "paperclip"
-
+gem 'thin'
 # Use unicorn as the web server
 # gem 'unicorn'
 

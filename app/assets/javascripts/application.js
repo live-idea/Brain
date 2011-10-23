@@ -7,3 +7,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+  
+ 
+   $(".ajax_link").live("ajax:success", function(event, data, status, xhr) {
+       $(".ajax_link").hide();
+       //alert("ddd");
+       alert(data);
+   });
+});

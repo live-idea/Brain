@@ -1,11 +1,11 @@
 # -*- encoding : utf-8 -*-
 class GamesController < ApplicationController
+  before_filter :get_interesting
   # GET /games
   # GET /games.json
   def index
     @quests=Quest.all
-    @interesting = Interesting.find :first, :offset => (Interesting.count*rand).to_i
-    #@interesting = Interesting.find(params[:id])
+     
   end
   
   def show
@@ -13,9 +13,29 @@ class GamesController < ApplicationController
     if params[:step]
       @step = @quest.steps.find params[:step]
     else
-      @step = @quest.steps.where(:title => "Початок").first
+      
+      if @step = @quest.steps.where(:title => "Початок").first 
+      else
+        render "shared/_nexist"
+    
+      end
     end
+    @comments = Comment.all
   end
  
+  def ajax
+    render :text => "Зеро!!! #{Time.now.to_s}"
+  end
+  
+  
+ 
+  private
+  
+  def get_interesting
+    if Interesting.count > 0
+    @interesting = Interesting.find :first, :offset => (Interesting.count*rand).to_i
+    end
+  end
+  
  
 end
